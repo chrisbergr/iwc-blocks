@@ -52,6 +52,7 @@
     }
   },
   "textdomain": "iwc-blocks",
+  "editorScript": "file:./index.js",
   "editorStyle": "wp-block-comments-editor",
   "usesContext": [
     "postId",

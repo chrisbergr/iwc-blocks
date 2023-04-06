@@ -2,73 +2,6 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/deprecated.js":
-/*!***************************!*\
-  !*** ./src/deprecated.js ***!
-  \***************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
-
-/**
- * WordPress dependencies
- */
-
-
-// v1: Deprecate the initial version of the block which was called "Comments
-// Query Loop" instead of "Comments".
-const v1 = {
-  attributes: {
-    tagName: {
-      type: 'string',
-      default: 'div'
-    }
-  },
-  apiVersion: 2,
-  supports: {
-    align: ['wide', 'full'],
-    html: false,
-    color: {
-      gradients: true,
-      link: true,
-      __experimentalDefaultControls: {
-        background: true,
-        text: true,
-        link: true
-      }
-    }
-  },
-  save(_ref) {
-    let {
-      attributes: {
-        tagName: Tag
-      }
-    } = _ref;
-    const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save();
-    const {
-      className
-    } = blockProps;
-    const classes = className?.split(' ') || [];
-
-    // The ID of the previous version of the block
-    // didn't have the `wp-block-comments` class,
-    // so we need to remove it here in order to mimic it.
-    const newClasses = classes?.filter(cls => cls !== 'wp-block-comments');
-    const newBlockProps = {
-      ...blockProps,
-      className: newClasses.join(' ')
-    };
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tag, newBlockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null));
-  }
-};
-/* harmony default export */ __webpack_exports__["default"] = ([v1]);
-
-/***/ }),
-
 /***/ "./src/edit/comments-inspector-controls.js":
 /*!*************************************************!*\
   !*** ./src/edit/comments-inspector-controls.js ***!
@@ -351,7 +284,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ (function(module) {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"create-block/iwc-blocks","version":"0.1.0","title":"Iwc Blocks","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","attributes":{"tagName":{"type":"string","default":"div"},"legacy":{"type":"boolean","default":false}},"supports":{"align":["wide","full"],"anchor":true,"html":false,"color":{"gradients":true,"link":true,"__experimentalDefaultControls":{"background":true,"text":true,"link":true}},"spacing":{"margin":true,"padding":true},"typography":{"fontSize":true,"lineHeight":true,"__experimentalFontFamily":true,"__experimentalFontWeight":true,"__experimentalFontStyle":true,"__experimentalTextTransform":true,"__experimentalTextDecoration":true,"__experimentalLetterSpacing":true,"__experimentalDefaultControls":{"fontSize":true}}},"textdomain":"iwc-blocks","editorStyle":"wp-block-comments-editor","usesContext":["postId","postType"]}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"create-block/iwc-blocks","version":"0.1.0","title":"Iwc Blocks","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","attributes":{"tagName":{"type":"string","default":"div"},"legacy":{"type":"boolean","default":false}},"supports":{"align":["wide","full"],"anchor":true,"html":false,"color":{"gradients":true,"link":true,"__experimentalDefaultControls":{"background":true,"text":true,"link":true}},"spacing":{"margin":true,"padding":true},"typography":{"fontSize":true,"lineHeight":true,"__experimentalFontFamily":true,"__experimentalFontWeight":true,"__experimentalFontStyle":true,"__experimentalTextTransform":true,"__experimentalTextDecoration":true,"__experimentalLetterSpacing":true,"__experimentalDefaultControls":{"fontSize":true}}},"textdomain":"iwc-blocks","editorScript":"file:./index.js","editorStyle":"wp-block-comments-editor","usesContext":["postId","postType"]}');
 
 /***/ })
 
@@ -438,9 +371,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _utils_init_block__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/init-block */ "./src/utils/init-block.js");
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./block.json */ "./src/block.json");
-/* harmony import */ var _deprecated__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./deprecated */ "./src/deprecated.js");
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./edit */ "./src/edit/index.js");
-/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./save */ "./src/save.js");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/edit/index.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./src/save.js");
 /**
  * WordPress dependencies
  */
@@ -451,7 +383,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
-
+//import deprecated from './deprecated';
 
 
 const {
@@ -459,11 +391,12 @@ const {
 } = _block_json__WEBPACK_IMPORTED_MODULE_1__;
 
 const settings = {
-  icon,
-  edit: _edit__WEBPACK_IMPORTED_MODULE_3__["default"],
-  save: _save__WEBPACK_IMPORTED_MODULE_4__["default"],
-  deprecated: _deprecated__WEBPACK_IMPORTED_MODULE_2__["default"]
+  //	icon,
+  edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"],
+  save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
+  //	deprecated,
 };
+
 const init = () => (0,_utils_init_block__WEBPACK_IMPORTED_MODULE_0__["default"])({
   name,
   metadata: _block_json__WEBPACK_IMPORTED_MODULE_1__,
