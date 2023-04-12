@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "iwc-blocks/iwc-comment-template",
+  "version": "0.1.0",
+  "title": "IWC Comment Template",
+  "category": "design",
+  "parent": [
+    "iwc-blocks/iwc-comments"
+  ],
+  "icon": "smiley",
+  "description": "Contains the block elements used to display a comment, like the title, date, author, avatar and more.",
+  "supports": {
+    "align": true,
+    "anchor": true,
+    "html": false,
+    "reusable": false,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "__experimentalFontFamily": true,
+      "__experimentalFontWeight": true,
+      "__experimentalFontStyle": true,
+      "__experimentalTextTransform": true,
+      "__experimentalTextDecoration": true,
+      "__experimentalLetterSpacing": true,
+      "__experimentalDefaultControls": {
+        "fontSize": true
+      }
+    }
+  },
+  "textdomain": "iwc-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "usesContext": [
+    "postId"
+  ]
+}

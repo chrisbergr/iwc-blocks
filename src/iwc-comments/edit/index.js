@@ -1,7 +1,11 @@
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
+
+import CommentsInspectorControls from './comments-inspector-controls';
+
 const TEMPLATE = [
 	[ 'core/comments-title' ],
 	[
-		'core/comment-template',
+		'iwc-blocks/iwc-comment-template',
 		{},
 		[
 			[
@@ -13,7 +17,7 @@ const TEMPLATE = [
 						{ width: '40px' },
 						[
 							[
-								'core/avatar',
+								'iwc-blocks/iwc-avatar',
 								{
 									size: 40,
 									style: {
@@ -78,4 +82,22 @@ const TEMPLATE = [
 	[ 'core/post-comments-form' ],
 ];
 
-export default TEMPLATE;
+export default function CommentsEdit( props ) {
+	const { attributes, setAttributes } = props;
+	const { tagName: TagName } = attributes;
+
+	const blockProps = useBlockProps();
+	const innerBlocksProps = useInnerBlocksProps( blockProps, {
+		template: TEMPLATE,
+	} );
+
+	return (
+		<>
+			<CommentsInspectorControls
+				attributes={ attributes }
+				setAttributes={ setAttributes }
+			/>
+			<TagName { ...innerBlocksProps } />
+		</>
+	);
+}

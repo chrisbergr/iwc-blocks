@@ -1,35 +1,18 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "create-block/iwc-blocks",
+	"name": "iwc-blocks/iwc-comment-template",
 	"version": "0.1.0",
-	"title": "Iwc Blocks",
-	"category": "widgets",
+	"title": "IWC Comment Template",
+	"category": "design",
+	"parent": [ "iwc-blocks/iwc-comments" ],
 	"icon": "smiley",
-	"description": "Example block scaffolded with Create Block tool.",
-	"attributes": {
-		"tagName": {
-			"type": "string",
-			"default": "div"
-		},
-		"legacy": {
-			"type": "boolean",
-			"default": false
-		}
-	},
+	"description": "Contains the block elements used to display a comment, like the title, date, author, avatar and more.",
 	"supports": {
-		"align": [ "wide", "full" ],
+		"align": true,
 		"anchor": true,
 		"html": false,
-		"color": {
-			"gradients": true,
-			"link": true,
-			"__experimentalDefaultControls": {
-				"background": true,
-				"text": true,
-				"link": true
-			}
-		},
+		"reusable": false,
 		"spacing": {
 			"margin": true,
 			"padding": true
@@ -50,6 +33,7 @@
 	},
 	"textdomain": "iwc-blocks",
 	"editorScript": "file:./index.js",
-	"editorStyle": "wp-block-comments-editor",
-	"usesContext": [ "postId", "postType" ]
+	"editorStyle": "file:./editor.css",
+	"style": "file:./style.css",
+	"usesContext": [ "postId" ]
 }

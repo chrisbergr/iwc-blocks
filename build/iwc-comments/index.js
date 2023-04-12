@@ -2,10 +2,10 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/edit/comments-inspector-controls.js":
-/*!*************************************************!*\
-  !*** ./src/edit/comments-inspector-controls.js ***!
-  \*************************************************/
+/***/ "./src/iwc-comments/edit/comments-inspector-controls.js":
+/*!**************************************************************!*\
+  !*** ./src/iwc-comments/edit/comments-inspector-controls.js ***!
+  \**************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -21,9 +21,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
 
-/**
- * WordPress dependencies
- */
 
 
 
@@ -63,10 +60,10 @@ function CommentsInspectorControls(_ref) {
 
 /***/ }),
 
-/***/ "./src/edit/index.js":
-/*!***************************!*\
-  !*** ./src/edit/index.js ***!
-  \***************************/
+/***/ "./src/iwc-comments/edit/index.js":
+/*!****************************************!*\
+  !*** ./src/iwc-comments/edit/index.js ***!
+  \****************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -77,49 +74,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _comments_inspector_controls__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./comments-inspector-controls */ "./src/edit/comments-inspector-controls.js");
-/* harmony import */ var _template__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./template */ "./src/edit/template.js");
-
-/**
- * WordPress dependencies
- */
+/* harmony import */ var _comments_inspector_controls__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./comments-inspector-controls */ "./src/iwc-comments/edit/comments-inspector-controls.js");
 
 
-/**
- * Internal dependencies
- */
 
-
-function CommentsEdit(props) {
-  const {
-    attributes,
-    setAttributes
-  } = props;
-  const {
-    tagName: TagName
-  } = attributes;
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)();
-  const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useInnerBlocksProps)(blockProps, {
-    template: _template__WEBPACK_IMPORTED_MODULE_3__["default"]
-  });
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_comments_inspector_controls__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    attributes: attributes,
-    setAttributes: setAttributes
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(TagName, innerBlocksProps));
-}
-
-/***/ }),
-
-/***/ "./src/edit/template.js":
-/*!******************************!*\
-  !*** ./src/edit/template.js ***!
-  \******************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-const TEMPLATE = [['core/comments-title'], ['core/comment-template', {}, [['core/columns', {}, [['core/column', {
+const TEMPLATE = [['core/comments-title'], ['iwc-blocks/iwc-comment-template', {}, [['core/columns', {}, [['core/column', {
   width: '40px'
-}, [['core/avatar', {
+}, [['iwc-blocks/iwc-avatar', {
   size: 40,
   style: {
     border: {
@@ -147,14 +108,30 @@ const TEMPLATE = [['core/comments-title'], ['core/comment-template', {}, [['core
 }]]], ['core/comment-content'], ['core/comment-reply-link', {
   fontSize: 'small'
 }]]]]]]], ['core/comments-pagination'], ['core/post-comments-form']];
-/* harmony default export */ __webpack_exports__["default"] = (TEMPLATE);
+function CommentsEdit(props) {
+  const {
+    attributes,
+    setAttributes
+  } = props;
+  const {
+    tagName: TagName
+  } = attributes;
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)();
+  const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useInnerBlocksProps)(blockProps, {
+    template: TEMPLATE
+  });
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_comments_inspector_controls__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    attributes: attributes,
+    setAttributes: setAttributes
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(TagName, innerBlocksProps));
+}
 
 /***/ }),
 
-/***/ "./src/save.js":
-/*!*********************!*\
-  !*** ./src/save.js ***!
-  \*********************/
+/***/ "./src/iwc-comments/save/index.js":
+/*!****************************************!*\
+  !*** ./src/iwc-comments/save/index.js ***!
+  \****************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -166,9 +143,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
 
-/**
- * WordPress dependencies
- */
 
 function save(_ref) {
   let {
@@ -178,52 +152,7 @@ function save(_ref) {
   } = _ref;
   const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save();
   const innerBlocksProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useInnerBlocksProps.save(blockProps);
-
-  // The legacy version is dynamic (i.e. PHP rendered) and doesn't allow inner
-  // blocks, so nothing is saved in that case.
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Tag, innerBlocksProps);
-}
-
-/***/ }),
-
-/***/ "./src/utils/init-block.js":
-/*!*********************************!*\
-  !*** ./src/utils/init-block.js ***!
-  \*********************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ initBlock; }
-/* harmony export */ });
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
-/**
- * WordPress dependencies
- */
-
-
-/**
- * Function to register an individual block.
- *
- * @param {Object} block The block to be registered.
- *
- * @return {WPBlockType | undefined} The block, if it has been successfully registered;
- *                        otherwise `undefined`.
- */
-function initBlock(block) {
-  if (!block) {
-    return;
-  }
-  const {
-    metadata,
-    settings,
-    name
-  } = block;
-  return (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)({
-    name,
-    ...metadata
-  }, settings);
 }
 
 /***/ }),
@@ -278,13 +207,13 @@ module.exports = window["wp"]["i18n"];
 
 /***/ }),
 
-/***/ "./src/block.json":
-/*!************************!*\
-  !*** ./src/block.json ***!
-  \************************/
+/***/ "./src/iwc-comments/block.json":
+/*!*************************************!*\
+  !*** ./src/iwc-comments/block.json ***!
+  \*************************************/
 /***/ (function(module) {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"create-block/iwc-blocks","version":"0.1.0","title":"Iwc Blocks","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","attributes":{"tagName":{"type":"string","default":"div"},"legacy":{"type":"boolean","default":false}},"supports":{"align":["wide","full"],"anchor":true,"html":false,"color":{"gradients":true,"link":true,"__experimentalDefaultControls":{"background":true,"text":true,"link":true}},"spacing":{"margin":true,"padding":true},"typography":{"fontSize":true,"lineHeight":true,"__experimentalFontFamily":true,"__experimentalFontWeight":true,"__experimentalFontStyle":true,"__experimentalTextTransform":true,"__experimentalTextDecoration":true,"__experimentalLetterSpacing":true,"__experimentalDefaultControls":{"fontSize":true}}},"textdomain":"iwc-blocks","editorScript":"file:./index.js","editorStyle":"wp-block-comments-editor","usesContext":["postId","postType"]}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"iwc-blocks/iwc-comments","version":"0.1.0","title":"IWC Comments","category":"theme","icon":"smiley","description":"IndieWeb Replacement of core comments block.","attributes":{"tagName":{"type":"string","default":"div"},"legacy":{"type":"boolean","default":false}},"supports":{"align":["wide","full"],"anchor":true,"html":false,"color":{"gradients":true,"link":true,"__experimentalDefaultControls":{"background":true,"text":true,"link":true}},"spacing":{"margin":true,"padding":true},"typography":{"fontSize":true,"lineHeight":true,"__experimentalFontFamily":true,"__experimentalFontWeight":true,"__experimentalFontStyle":true,"__experimentalTextTransform":true,"__experimentalTextDecoration":true,"__experimentalLetterSpacing":true,"__experimentalDefaultControls":{"fontSize":true}}},"textdomain":"iwc-blocks","editorScript":"file:./index.js","editorStyle":"file:./editor.css","style":"file:./style.css","usesContext":["postId","postType"]}');
 
 /***/ })
 
@@ -359,48 +288,22 @@ module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 !function() {
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
+/*!***********************************!*\
+  !*** ./src/iwc-comments/index.js ***!
+  \***********************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "init": function() { return /* binding */ init; },
-/* harmony export */   "metadata": function() { return /* reexport default export from named module */ _block_json__WEBPACK_IMPORTED_MODULE_1__; },
-/* harmony export */   "name": function() { return /* binding */ name; },
-/* harmony export */   "settings": function() { return /* binding */ settings; }
-/* harmony export */ });
-/* harmony import */ var _utils_init_block__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/init-block */ "./src/utils/init-block.js");
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./block.json */ "./src/block.json");
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/edit/index.js");
-/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./src/save.js");
-/**
- * WordPress dependencies
- */
-//import { postComments as icon } from '@wordpress/icons';
-
-/**
- * Internal dependencies
- */
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./block.json */ "./src/iwc-comments/block.json");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/iwc-comments/edit/index.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./src/iwc-comments/save/index.js");
 
 
-//import deprecated from './deprecated';
 
 
-const {
-  name
-} = _block_json__WEBPACK_IMPORTED_MODULE_1__;
-
-const settings = {
-  //	icon,
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_1__.name, {
   edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"],
   save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
-  //	deprecated,
-};
-
-const init = () => (0,_utils_init_block__WEBPACK_IMPORTED_MODULE_0__["default"])({
-  name,
-  metadata: _block_json__WEBPACK_IMPORTED_MODULE_1__,
-  settings
 });
 }();
 /******/ })()

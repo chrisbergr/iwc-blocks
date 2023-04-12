@@ -1,12 +1,12 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
-  "name": "create-block/iwc-blocks",
+  "name": "iwc-blocks/iwc-comments",
   "version": "0.1.0",
-  "title": "Iwc Blocks",
-  "category": "widgets",
+  "title": "IWC Comments",
+  "category": "theme",
   "icon": "smiley",
-  "description": "Example block scaffolded with Create Block tool.",
+  "description": "IndieWeb Replacement of core comments block.",
   "attributes": {
     "tagName": {
       "type": "string",
@@ -53,7 +53,8 @@
   },
   "textdomain": "iwc-blocks",
   "editorScript": "file:./index.js",
-  "editorStyle": "wp-block-comments-editor",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
   "usesContext": [
     "postId",
     "postType"
